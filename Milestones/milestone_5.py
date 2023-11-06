@@ -2,6 +2,7 @@ import random
 
 class Hangman:
 
+    #Initialises the variables required for the game 
     def __init__(self, word_list, num_lives=5):
         self.word = str(random.choice(word_list))
         self.word_guessed = ['_' for letter in list(self.word)]
@@ -12,7 +13,7 @@ class Hangman:
         print(f"The mystery word has {len(self.word)} characters")
         print(f"{self.word_guessed}")
     
-
+    #Takes in the letter and checks if it matches the chosen word
     def check_guess(self, letter) -> None:
         self.list_letters.add(letter.lower())
         index = -1
@@ -31,7 +32,8 @@ class Hangman:
             print(f"You have {self.num_lives} lives left!")
         
 
-    def check_letter(self):
+    #Runs the game loop until user runs out of lives or until they guess the word
+    def run_game(self):         
             while self.num_lives != 0:
                 guess = input("Please enter your letter:")
                 if len(guess) != 1 or not guess.isalpha():
@@ -47,11 +49,11 @@ class Hangman:
                 print("You have lost all your lives!")
 
     
-def play_game(word_list):
-    game = Hangman(word_list, num_lives=5)
-    game.check_letter()
+def play_game(word_list):                        
+    game = Hangman(word_list, num_lives=5) #Number of lives can be changed here, enter any integer
+    game.run_game()
 
 
 if __name__ == '__main__':
-    word_list = ['Banana', 'Apple', 'Orange', 'Peach', 'Pear']
+    word_list = ['Banana', 'Apple', 'Orange', 'Peach', 'Pear'] #List of words can be changed here
     play_game(word_list)
