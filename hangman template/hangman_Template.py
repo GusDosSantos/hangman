@@ -96,5 +96,6 @@ def play_game(word_list):
 if __name__ == '__main__':
     word_list = ['apple', 'banana', 'orange', 'pear', 'strawberry', 'watermelon']
     play_game(word_list)
-# %%
 
+print("Commit Successful from Visual Studio / Conda")
+print("Commit Successful from Visual Studio / Conda")
